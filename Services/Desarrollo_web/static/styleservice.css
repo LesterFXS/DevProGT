@@ -1,0 +1,147 @@
+body {
+    width:100%;
+    font-family: "Noto Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: none;
+    font-style: normal;
+    font-variation-settings:"wdth" 100;
+    margin: 0 0; 
+}
+
+/*Header !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+
+header{
+    display:flex;
+    justify-content: space-between;
+    text-align: right;
+    width:100%;
+    height:100px;
+    background-color: black;
+    color:white;
+    z-index: 1000;
+    position:fixed;
+    top:0;
+}
+
+.NAV {
+    margin:35px 30px;
+}
+
+.nav1, .nav2 {
+    margin:auto 10px;
+}
+
+.nav1:hover, .nav2:hover {
+    opacity:0.5;
+}
+
+.logo img {
+    margin:15% 20px;
+    border-radius: 50px;
+    box-shadow: 0 0 10px white;
+}
+
+
+/*SECTION 1 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+
+.section1 {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin:auto 0;
+    margin-top:120px;
+}
+
+.services {
+    display:flex;
+    text-align: left;
+    justify-content: left;
+}
+
+.Services_elements_left  {
+    display:flex;
+    width:75%;
+    text-align: left;
+    justify-content: left;
+    align-items: left;
+    margin:100px auto;
+}
+
+.SE_left {
+    display:flex;
+    flex-direction: column;
+    justify-content: left;
+    text-align: left;
+}
+
+.Services_elements_left ul {
+    display:flex;
+    justify-content: left;
+    align-items: left;
+    flex-direction: column;
+    text-align: left;
+}
+
+.Services_elements_left p {
+    display:flex;
+    justify-content: left;
+    align-items: left;
+    text-align: left;
+}
+
+.Services_elements_left .image {
+    display:flex;
+    border-radius:15px;
+    box-shadow: 0 0 10px white;
+}
+
+/*Cotización !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+
+.pago {
+    background-color: black;
+    color:white;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    padding:15px 0;
+    margin-bottom: 0;
+}
+
+.pago input, .pago textarea, .pago button {
+    width: 500px;
+    margin: 10px auto;
+}
+
+/*FOOTER !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+
+footer {
+    display:flex;
+    justify-content:end;
+    flex-direction:column;
+    width:100%;
+    height:150px;
+    background-color: white;
+    align-items:flex-end;
+}
+
+footer .icons, p {
+    margin:10px 50px;
+    color:gray;
+  
+}
+
+footer img {
+    box-shadow:0 0 1px white;
+    background-color: gray;
+}
+
+.correo_contacto a, p{
+    display:flex;
+    justify-content: end;
+    text-align: right;
+    margin-right:50px;
+}
