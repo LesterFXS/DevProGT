@@ -38,10 +38,9 @@ header .logo {
     opacity:0.5;
 }
 
-header .NAV {
+header .nav {
     display:flex;
     margin-right:15px;
-    background-color: black;
 }
 
 .nav .nav1, .nav .nav2 {
@@ -52,7 +51,6 @@ header .NAV {
     font-weight: bold;
     font-size:16px;
     transition:opacity 0.3s ease;
-    background-color: black;
 
 }
 
