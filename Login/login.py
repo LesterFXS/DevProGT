@@ -6,10 +6,10 @@ app = Flask(__name__)
 app.secret_key = 'tu_secreto'  # Necesario para usar flash messages
 
 # Datos de conexión a la base de datos MySQL
-servidor = "bb3itdt4uanlibigzvu2-mysql.services.clever-cloud.com"
-usuario_bd = "uhaydkjlu1lcktzd"
-contrasena_bd = "Ff9mV6czXXbWY812vSmo"
-base_datos = "bb3itdt4uanlibigzvu2"
+servidor = "bno7ox1wwkdqxekvdstn-mysql.services.clever-cloud.com"
+usuario_bd = "u4ntvn9xowbmtzml"
+contrasena_bd = "HWgirR2sFN6rmkKiOmaA"
+base_datos = "bno7ox1wwkdqxekvdstn"
 
 def crear_conexion():
     return pymysql.connect(
