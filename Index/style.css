@@ -211,7 +211,7 @@ header .nav {
 
 /*Elementos*/
 
-.elementService .Element1, .Element2, .Element3, .Element4 {
+.elementService .Element1, .elementService .Element2, .elementService .Element3, .elementService .Element4 {
     display:flex;
     justify-content: center;
     text-align: center;
@@ -220,7 +220,7 @@ header .nav {
     
 }
 
-.elementService .Element1 a, .Element2 a, .Element3 a, .Element4 a {
+.elementService .Element1 a, .elementService .Element2 a, .elementService .Element3 a, .elementService .Element4 a {
     display:flex;
     justify-content: center;
     text-align: center;
@@ -230,19 +230,23 @@ header .nav {
     color:white;
     text-decoration: none;
     transition:box-shadow 0.3s ease;
+    
     /*transition:opacity 0.3s ease;*/
 }
-.elementService .Element1 p, .Element2 p, .Element3 p, .Element4 p {
+.elementService .Element1 p, .elementService .Element2 p, .elementService .Element3 p, .elementService .Element4 p {
     display:flex;
-    justify-content: end;
     text-align: center;
     color:white;
-    margin-top: 68%;
+    position: relative;
+    transform: translateY(80%);
 }
 
-.elementService .Element1 a:hover, .Element2 a:hover, .Element3 a:hover, .Element4 a:hover {
+.elementService .Element1 a:hover, .elementService .Element2 a:hover, .elementService .Element3 a:hover, .elementService .Element4 a:hover {
     cursor:pointer;
     box-shadow: 0 2px 15px darkgray;
+    border-radius: 40%;
+    transition:border-radius 0.3s ease;
+
     /*opacity: 0.5;*/
 }
 
@@ -276,7 +280,7 @@ header .nav {
 
 
 @media (max-width: 1665px) {
-    .elementService .Element1 a, .elementService .Element2 a, .elementService  .Element3 a, .elementService  .Element4 a {
+    .elementService .Element1 a, .elementService .Element2 a, .elementService .Element3 a, .elementService .Element4 a {
         width:350px;
         height:300px;
         display:flex;
@@ -286,7 +290,11 @@ header .nav {
         border-radius: 20px;
         color:white;
         transition:box-shadow 0.3s ease;
+        margin: 0;
     }
+
+
+
 }
 
 @media (max-width: 1490px) {
@@ -302,6 +310,9 @@ header .nav {
         color:white;
         transition:box-shadow 0.3s ease;
     }
+
+   
+    
 }
 
 @media (max-width: 1300px) {
@@ -316,14 +327,21 @@ header .nav {
         color:white;
         transition:box-shadow 0.3s ease;
         background-size: cover;
-        margin: auto 25px;
+        margin: 0, 25px;
+        
     }
 
     .Services {
         display:flex;
         flex-wrap: wrap;
+        
+
     }
 
+    .Services p {
+        position: relative;
+        top: 300px;    
+    }
 }
 
 @media (max-width: 980px) {

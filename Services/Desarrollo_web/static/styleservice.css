@@ -23,6 +23,19 @@ header{
     top:0;
 }
 
+.nav2 {
+    width: 10px;
+    height: 100px;
+    color:black !important; 
+    background-color: white;
+    border:solid black 1px;
+    border-radius: 5px;
+    padding: 5px;
+    font-weight: bolder;
+    width: 10px;
+    height: 100px;
+}
+
 .NAV {
     margin:35px 30px;
 }
