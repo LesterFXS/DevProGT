@@ -212,7 +212,6 @@ header .nav {
 /*Elementos*/
 
 .elementService .Element1, .elementService .Element2, .elementService .Element3, .elementService .Element4 {
-    display:flex;
     justify-content: center;
     text-align: center;
     border: solid transparent 1px;
@@ -233,13 +232,16 @@ header .nav {
     
     /*transition:opacity 0.3s ease;*/
 }
+
 .elementService .Element1 p, .elementService .Element2 p, .elementService .Element3 p, .elementService .Element4 p {
-    display:flex;
+    width:auto;
+    height: 80px;
     text-align: center;
     color:white;
-    position: relative;
-    transform: translateY(80%);
+    transform: translateY(325%);
 }
+
+
 
 .elementService .Element1 a:hover, .elementService .Element2 a:hover, .elementService .Element3 a:hover, .elementService .Element4 a:hover {
     cursor:pointer;
@@ -293,7 +295,15 @@ header .nav {
         margin: 0;
     }
 
+    .elementService .Element1 p{
+        transform: translateY(250%);
+    }
 
+    .elementService .Element2 p, .elementService .Element3 p, .elementService .Element4 p{
+        width: auto;
+        height: 30px;
+        transform: translateY(680%);
+    }
 
 }
 
@@ -311,6 +321,16 @@ header .nav {
         transition:box-shadow 0.3s ease;
     }
 
+   .elementService .Element1 p{
+        transform: translateY(200%);
+   }
+
+   .elementService .Element2 p, .elementService .Element3 p, .elementService .Element4 p{
+        width: auto;
+        height: 30px;
+        transform: translateY(600%);
+   }
+
    
     
 }
@@ -327,20 +347,30 @@ header .nav {
         color:white;
         transition:box-shadow 0.3s ease;
         background-size: cover;
-        margin: 0, 25px;
         
     }
 
-    .Services {
-        display:flex;
+    .Services{
+        display: flex;
         flex-wrap: wrap;
+    
         
-
     }
 
-    .Services p {
-        position: relative;
-        top: 300px;    
+
+    .elementService .Element1 p{
+        transform: translateY(350%);
+   }
+
+
+    .elementService .Element2 p, .elementService .Element3 p, .elementService .Element4 p{
+        width: auto;
+        height: 30px;
+        transform: translateY(900%);
+    }
+    
+    .elementService .Element2 p {
+        color:black;
     }
 }
 
@@ -358,11 +388,16 @@ header .nav {
         background-size: cover;
     }
 
-    .Services {
+    .Services .elementService {
         display:flex;
         flex-wrap: wrap;
+        margin-left:25%;
+        margin-right:25%
     }
 
+    .elementService .Element2 p {
+        color:white;
+    }
 }
 
 /* SECTION 4 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/

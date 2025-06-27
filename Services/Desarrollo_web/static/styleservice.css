@@ -128,7 +128,6 @@ header{
 }
 
 .Services_elements_left p {
-    display:flex;
     justify-content: left;
     align-items: left;
     text-align: left;
