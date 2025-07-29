@@ -246,8 +246,8 @@ header .nav {
 .elementService .Element1 a:hover, .elementService .Element2 a:hover, .elementService .Element3 a:hover, .elementService .Element4 a:hover {
     cursor:pointer;
     box-shadow: 0 2px 15px darkgray;
-    border-radius: 40%;
-    transition:border-radius 0.3s ease;
+    border-radius: 20%;
+    transition:border-radius 0.8s ease;
 
     /*opacity: 0.5;*/
 }
