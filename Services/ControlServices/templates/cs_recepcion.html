@@ -238,26 +238,26 @@
                 el equipo en nuestro sistema.
             </div>
 
-            <form>
+            <form method="POST" action="{{ url_for('control_service_bp.registrar_datos') }}">
                 <div class="form-grid">
                     <div class="form-group">
                         <label for="cliente">Nombre del Cliente <span class="required">*</span></label>
-                        <input type="text" id="cliente" name="cliente" placeholder="Nombre completo" required>
+                        <input type="text" id="cliente" name="cliente_rec" placeholder="Nombre completo" required>
                     </div>
 
                     <div class="form-group">
                         <label for="telefono">Teléfono de Contacto <span class="required">*</span></label>
-                        <input type="tel" id="telefono" name="telefono" placeholder="0000-0000" required>
+                        <input type="tel" id="telefono" name="telefono_rec" placeholder="0000-0000" required>
                     </div>
 
                     <div class="form-group">
                         <label for="email">Correo Electrónico</label>
-                        <input type="email" id="email" name="email" placeholder="cliente@email.com">
+                        <input type="email" id="email" name="email_rec" placeholder="cliente@email.com">
                     </div>
 
                     <div class="form-group">
                         <label for="equipo">Tipo de Equipo <span class="required">*</span></label>
-                        <select id="equipo" name="equipo" required>
+                        <select id="equipo" name="equipo_rec" required>
                             <option value="">Seleccione el tipo de equipo</option>
                             <option value="laptop">Laptop</option>
                             <option value="desktop">Computadora de Escritorio</option>
@@ -272,39 +272,40 @@
 
                     <div class="form-group">
                         <label for="marca">Marca del Equipo <span class="required">*</span></label>
-                        <input type="text" id="marca" name="marca" placeholder="Ej: HP, Dell, Lenovo" required>
+                        <input type="text" id="marca" name="marca_rec" placeholder="Ej: HP, Dell, Lenovo" required>
                     </div>
 
                     <div class="form-group">
                         <label for="modelo">Modelo del Equipo <span class="required">*</span></label>
-                        <input type="text" id="modelo" name="modelo" placeholder="Modelo específico" required>
+                        <input type="text" id="modelo" name="modelo_rec" placeholder="Modelo específico" required>
                     </div>
 
                     <div class="form-group">
                         <label for="serie">Número de Serie</label>
-                        <input type="text" id="serie" name="serie" placeholder="Número de serie (si está disponible)">
+                        <input type="text" id="serie" name="serie_rec"
+                            placeholder="Número de serie (si está disponible)">
                     </div>
 
                     <div class="form-group">
                         <label for="fecha">Fecha de Recepción <span class="required">*</span></label>
-                        <input type="date" id="fecha" name="fecha" required>
+                        <input type="date" id="fecha" name="fecha_rec" required>
                     </div>
 
                     <div class="form-group">
                         <label for="hora">Hora de Recepción <span class="required">*</span></label>
-                        <input type="time" id="hora" name="hora" required>
+                        <input type="time" id="hora" name="hora_rec" required>
                     </div>
 
                     <div class="form-group full-width">
                         <label for="falla">Descripción de la Falla <span class="required">*</span></label>
-                        <textarea id="falla" name="falla"
+                        <textarea id="falla" name="falla_rec"
                             placeholder="Describa detalladamente el problema que presenta el equipo, síntomas, cuándo comenzó, etc."
                             required></textarea>
                     </div>
 
                     <div class="form-group full-width">
                         <label for="accesorios">Accesorios Incluidos</label>
-                        <textarea id="accesorios" name="accesorios"
+                        <textarea id="accesorios" name="accesorios_rec"
                             placeholder="Liste los accesorios entregados: cargador, mouse, cables, etc."></textarea>
                     </div>
 
@@ -312,15 +313,15 @@
                         <label>Prioridad del Servicio <span class="required">*</span></label>
                         <div class="priority-group">
                             <div class="priority-option">
-                                <input type="radio" id="normal" name="prioridad" value="normal" required>
+                                <input type="radio" id="normal" name="prioridad_rec" value="normal" required>
                                 <label for="normal">🟢 Normal</label>
                             </div>
                             <div class="priority-option">
-                                <input type="radio" id="urgente" name="prioridad" value="urgente">
+                                <input type="radio" id="urgente" name="prioridad_rec" value="urgente">
                                 <label for="urgente">🟡 Urgente</label>
                             </div>
                             <div class="priority-option">
-                                <input type="radio" id="critico" name="prioridad" value="critico">
+                                <input type="radio" id="critico" name="prioridad_rec" value="critico">
                                 <label for="critico">🔴 Crítico</label>
                             </div>
                         </div>
@@ -328,7 +329,7 @@
 
                     <div class="form-group">
                         <label for="garantia">¿Equipo en Garantía?</label>
-                        <select id="garantia" name="garantia">
+                        <select id="garantia" name="garantia_rec">
                             <option value="">Seleccione una opción</option>
                             <option value="si">Sí, en garantía</option>
                             <option value="no">No, fuera de garantía</option>
@@ -338,7 +339,7 @@
 
                     <div class="form-group full-width">
                         <label for="observaciones">Observaciones Adicionales</label>
-                        <textarea id="observaciones" name="observaciones"
+                        <textarea id="observaciones" name="observaciones_rec"
                             placeholder="Cualquier información adicional relevante para el servicio"></textarea>
                     </div>
                 </div>

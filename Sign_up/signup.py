@@ -9,7 +9,7 @@ signup_bp = Blueprint('signup_bp', __name__,
                       static_url_path='/sign_up/static')
 
 
-@signup_bp.route('/registrar', methods=['POST', "GET"])
+@signup_bp.route('/registrarse', methods=['POST', "GET"])
 def registrar_usuario():
     nombre = request.form.get('name')
     apellido = request.form.get('lastname')

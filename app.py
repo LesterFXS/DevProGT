@@ -5,6 +5,7 @@ from Sign_up.signup import signup_bp
 from Index.index import index_bp
 from Services.ControlServices.control_services import control_service_bp
 
+
 app = Flask (__name__)
 
 # Datos de conexión a la base de datos MySQL
@@ -17,6 +18,8 @@ conexion = MySQL(app)
 
 login_bp.mysql = conexion
 signup_bp.mysql = conexion
+control_service_bp.mysql = conexion
+
 
 app.register_blueprint(index_bp)
 app.register_blueprint(login_bp)
