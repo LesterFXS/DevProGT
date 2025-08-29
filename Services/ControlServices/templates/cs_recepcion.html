@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevProGt - Gestor de Servicios</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            color: #ffffff;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px 0;
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #4a9eff;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #b8c6db;
+            margin-bottom: 5px;
+        }
+
+        .tagline {
+            font-size: 0.9rem;
+            color: #8a9ba8;
+        }
+
+        .form-container {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .form-title {
+            font-size: 1.8rem;
+            color: #4a9eff;
+            margin-bottom: 30px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-bottom: 25px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        label {
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #e1e8ed;
+            font-size: 0.95rem;
+        }
+
+        input,
+        select,
+        textarea {
+            padding: 12px 16px;
+            border: 2px solid rgba(74, 158, 255, 0.3);
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.08);
+            color: #ffffff;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #4a9eff;
+            background: rgba(255, 255, 255, 0.12);
+            box-shadow: 0 0 20px rgba(74, 158, 255, 0.2);
+        }
+
+        input::placeholder,
+        textarea::placeholder {
+            color: #a0a8b0;
+        }
+
+        select option {
+            background: #1a1a2e;
+            color: #ffffff;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .priority-group {
+            display: flex;
+            gap: 15px;
+            margin-top: 8px;
+        }
+
+        .priority-option {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            padding: 8px 12px;
+            border-radius: 8px;
+            transition: background 0.3s ease;
+        }
+
+        .priority-option:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .priority-option input[type="radio"] {
+            width: auto;
+            margin: 0;
+        }
+
+        .submit-section {
+            margin-top: 35px;
+            text-align: center;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #4a9eff 0%, #0066cc 100%);
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(74, 158, 255, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 35px rgba(74, 158, 255, 0.4);
+            background: linear-gradient(135deg, #5aa7ff 0%, #0077dd 100%);
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            color: #8a9ba8;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .form-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .form-container {
+                padding: 25px;
+                margin: 10px;
+            }
+
+            .container {
+                padding: 10px;
+            }
+
+            .logo {
+                font-size: 2rem;
+            }
+        }
+
+        .required {
+            color: #ff6b6b;
+        }
+
+        .info-box {
+            background: rgba(74, 158, 255, 0.1);
+            border: 1px solid rgba(74, 158, 255, 0.3);
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 25px;
+            font-size: 0.9rem;
+            color: #b8c6db;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">DevProGt</div>
+            <div class="subtitle">Servicios Técnicos Profesionales</div>
+            <div class="tagline">Reparación y Mantenimiento de Equipos</div>
+        </div>
+
+        <div class="form-container">
+            <h2 class="form-title">📋 Registro de Equipo para Servicio</h2>
+
+            <div class="info-box">
+                ℹ️ Complete todos los campos marcados con <span class="required">*</span> para registrar correctamente
+                el equipo en nuestro sistema.
+            </div>
+
+            <form>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="cliente">Nombre del Cliente <span class="required">*</span></label>
+                        <input type="text" id="cliente" name="cliente" placeholder="Nombre completo" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="telefono">Teléfono de Contacto <span class="required">*</span></label>
+                        <input type="tel" id="telefono" name="telefono" placeholder="0000-0000" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Correo Electrónico</label>
+                        <input type="email" id="email" name="email" placeholder="cliente@email.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="equipo">Tipo de Equipo <span class="required">*</span></label>
+                        <select id="equipo" name="equipo" required>
+                            <option value="">Seleccione el tipo de equipo</option>
+                            <option value="laptop">Laptop</option>
+                            <option value="desktop">Computadora de Escritorio</option>
+                            <option value="impresora">Impresora</option>
+                            <option value="monitor">Monitor</option>
+                            <option value="tablet">Tablet</option>
+                            <option value="smartphone">Smartphone</option>
+                            <option value="servidor">Servidor</option>
+                            <option value="otro">Otro</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="marca">Marca del Equipo <span class="required">*</span></label>
+                        <input type="text" id="marca" name="marca" placeholder="Ej: HP, Dell, Lenovo" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="modelo">Modelo del Equipo <span class="required">*</span></label>
+                        <input type="text" id="modelo" name="modelo" placeholder="Modelo específico" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="serie">Número de Serie</label>
+                        <input type="text" id="serie" name="serie" placeholder="Número de serie (si está disponible)">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="fecha">Fecha de Recepción <span class="required">*</span></label>
+                        <input type="date" id="fecha" name="fecha" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="hora">Hora de Recepción <span class="required">*</span></label>
+                        <input type="time" id="hora" name="hora" required>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="falla">Descripción de la Falla <span class="required">*</span></label>
+                        <textarea id="falla" name="falla"
+                            placeholder="Describa detalladamente el problema que presenta el equipo, síntomas, cuándo comenzó, etc."
+                            required></textarea>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="accesorios">Accesorios Incluidos</label>
+                        <textarea id="accesorios" name="accesorios"
+                            placeholder="Liste los accesorios entregados: cargador, mouse, cables, etc."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Prioridad del Servicio <span class="required">*</span></label>
+                        <div class="priority-group">
+                            <div class="priority-option">
+                                <input type="radio" id="normal" name="prioridad" value="normal" required>
+                                <label for="normal">🟢 Normal</label>
+                            </div>
+                            <div class="priority-option">
+                                <input type="radio" id="urgente" name="prioridad" value="urgente">
+                                <label for="urgente">🟡 Urgente</label>
+                            </div>
+                            <div class="priority-option">
+                                <input type="radio" id="critico" name="prioridad" value="critico">
+                                <label for="critico">🔴 Crítico</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="garantia">¿Equipo en Garantía?</label>
+                        <select id="garantia" name="garantia">
+                            <option value="">Seleccione una opción</option>
+                            <option value="si">Sí, en garantía</option>
+                            <option value="no">No, fuera de garantía</option>
+                            <option value="desconoce">No lo sabe</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="observaciones">Observaciones Adicionales</label>
+                        <textarea id="observaciones" name="observaciones"
+                            placeholder="Cualquier información adicional relevante para el servicio"></textarea>
+                    </div>
+                </div>
+
+                <div class="submit-section">
+                    <button type="submit" class="submit-btn">Registrar Equipo</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="footer">
+            © 2024 DevProGt - Todos los derechos reservados<br>
+            Servicios técnicos profesionales con garantía de calidad
+        </div>
+    </div>
+    <script>(function () { function c() { var b = a.contentDocument || a.contentWindow.document; if (b) { var d = b.createElement('script'); d.innerHTML = "window.__CF$cv$params={r:'976e475bd10eb0bf',t:'MTc1NjQ5Mzg5NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);"; b.getElementsByTagName('head')[0].appendChild(d) } } if (document.body) { var a = document.createElement('iframe'); a.height = 1; a.width = 1; a.style.position = 'absolute'; a.style.top = 0; a.style.left = 0; a.style.border = 'none'; a.style.visibility = 'hidden'; document.body.appendChild(a); if ('loading' !== document.readyState) c(); else if (window.addEventListener) document.addEventListener('DOMContentLoaded', c); else { var e = document.onreadystatechange || function () { }; document.onreadystatechange = function (b) { e(b); 'loading' !== document.readyState && (document.onreadystatechange = e, c()) } } } })();</script>
+</body>
+
+</html>

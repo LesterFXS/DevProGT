@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="Stylesheet" href="../static/css/StyleSignup.css" />
+    <title>DevPro Sign Up</title>
+    <link rel="icon" href="../static/Images/DevPro.png" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+    <section class="section1">
+        <div class="signup">
+            <form class="datos" action="{{ url_for('signup_bp.registrar_usuario') }}" method="POST">
+                <img class="logo" src="{{ url_for('index_bp.static', filename='img/DevPro3.png') }}" width="200px" />
+                <h2>Registrate</h2>
+                <div class="info">
+                    <label for="name">Nombre: </label>
+                    <input type="text" name="name" id="name" />
+                </div>
+                <div class="info">
+                    <label for="lastname">Apellido: </label>
+                    <input type="text" name="lastname" id="lastname" />
+                </div>
+                <div class="info">
+                    <label for="date">Fecha de nacimiento: </label>
+                    <input type="date" name="date" id="date" />
+                </div>
+                <div class="info">
+                    <label for="email">Correo: </label>
+                    <input type="email" name="email" id="email" />
+                </div>
+                <div class="info">
+                    <label for="password">Contraseña: </label>
+                    <input type="password" name="password" id="password" />
+                </div>
+                <div class="info">
+                    <label for="country">Pais: </label>
+                    <input type="text" name="country" id="country" />
+                </div>
+                <div class="boton">
+                    <button type="submit" id="botonazo" name="botonazo">Registrate</button>
+                </div>
+            </form>
+        </div>
+    </section>
+    <style>
+        body {
+            background-image: url("{{ url_for('index_bp.static', filename='img/editor_codigo.jpg') }}");
+            background-size: cover;
+            /*background-color: blue;*/
+            color: white;
+        }
+
+        Section {
+            font-family: "Roboto", sans-serif;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            margin: 5% 0;
+        }
+
+        .section1 .signup {
+            display: flex;
+            justify-content: center;
+            width: 400px;
+            height: 800px;
+            border: 1px solid transparent;
+            border-radius: 20px;
+            backdrop-filter: blur(50px);
+            box-shadow: 0 0 10px white;
+        }
+
+        .signup .logo {
+            border-radius: 100px;
+            display: flex;
+            margin: 20px auto;
+            margin-top: 50px;
+            box-shadow: 0 0 10px white;
+        }
+
+        .signup h2 {
+            display: flex;
+            justify-content: center;
+        }
+
+        .signup .info {
+            margin: 10px auto;
+            margin-right: 20px;
+            font-weight: bold;
+        }
+
+        .info #date:hover {
+            cursor: pointer;
+        }
+
+        .info input {
+            display: inline;
+            width: 100%;
+            height: 30px;
+            border: 1px solid transparent;
+            border-radius: 10px;
+            padding: 1px 10px;
+
+        }
+
+        .boton {
+            display: flex;
+            justify-content: center;
+            margin: 40px auto;
+        }
+
+        .boton #botonazo {
+            width: 50%;
+            height: 40px;
+            border: 1px solid transparent;
+            border-radius: 20px;
+            background-color: white;
+            color: black;
+            font-weight: bold;
+            transition: box-shadow 0.3s ease;
+            font-size: 16px;
+        }
+
+        .boton #botonazo:hover {
+            cursor: pointer;
+            box-shadow: 0 0 5px white;
+        }
+    </style>
+</body>
+
+</html>

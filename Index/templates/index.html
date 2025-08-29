@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="{{ url_for('index_bp.static', filename='css/style.css') }}" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <title>DevProGt</title>
+    <link rel="icon" href="{{ url_for('index_bp.static', filename='img/DevPro.png') }}" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="{{ url_for('index_bp.static', filename='img/DevPro.png') }}" width="70px" />
+        </div>
+        <nav class="nav">
+            <a class="nav1" href="index.html" id="inicio">Home</a>
+            <a class="nav1" href="#services">Modules</a>
+            <a class="nav1" href="#">Support</a>
+            <a class="nav2" href="{{ url_for('index_bp.go_login') }}" id="login">Login</a>
+            <a class="nav2" href="{{ url_for('index_bp.go_signup') }}" id="signup">Sign Up</a>
+        </nav>
+    </header>
+    <section class="section1">
+        <div class="sec1">
+            <h1>¡Somos tu mejor opción en desarrollo web!<br>
+                DevProGT es para ti.</h1>
+        </div>
+    </section>
+    <section class="section2">
+        <div class="sec2">
+            <h2>¿Quienes somos?</h2>
+            <p>Somos una compañía de desarrollo dedicada a transformar ideas en soluciones tecnológicas innovadoras. Con
+                un equipo apasionado por la tecnología, nos especializamos en el diseño y desarrollo de aplicaciones web
+                y móviles, así como en la integración de sistemas y servicios personalizados. Nuestra misión es ayudar a
+                empresas y emprendedores a crecer en el entorno digital, ofreciendo productos de alta calidad que
+                optimizan procesos y crean experiencias excepcionales para los usuarios. Nos destacamos por nuestro
+                compromiso con la excelencia, la atención al detalle y la entrega de resultados que superan
+                expectativas.</p>
+        </div>
+    </section>
+    <section class="section3" id="services">
+        <div class="sec3">
+            <h1>Módulos</h1>
+        </div>
+        <div class="Services">
+            <div class="elementService">
+                <div class="Element1">
+                    <a href="{{ url_for('index_bp.go_control_services') }}">
+                        <p>Control de servicios</p>
+                    </a>
+                </div>
+            </div>
+            <div class="elementService">
+                <div class="Element2">
+                    <a href="/Services/Integraciones/templates/Integracines.html">
+                        <p>To do list</p>
+                    </a>
+                </div>
+            </div>
+            <div class="elementService">
+                <div class="Element3">
+                    <a href="/Services/Plugins/templates/Plugins.html">
+                        <p>Registro de ingreso y egreso</p>
+                    </a>
+                </div>
+            </div>
+            <div class="elementService">
+                <div class="Element4">
+                    <a href="/Services/API/templates/API.html">
+                        <p>API</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section4">
+        <div class="S4">
+            <img src="{{ url_for('index_bp.static', filename='img/219923823-bf1ce878-c6b8-4faa-be07-93e6b1006521.gif') }}"
+                width="500px" />
+        </div>
+        <div class="S4">
+            <p>En DevProGT, somos un equipo de profesionales especializados en el desarrollo de soluciones tecnológicas
+                innovadoras y a medida. Contamos con amplia experiencia en la creación de aplicaciones web, móviles y
+                sistemas personalizados que se adaptan a las necesidades específicas de nuestros clientes.
+                Nos enfocamos en ofrecer productos de alta calidad, utilizando las tecnologías más avanzadas para
+                garantizar un rendimiento óptimo y una experiencia de usuario excepcional. Nuestro compromiso es
+                ayudarte a alcanzar tus metas a través de herramientas digitales eficaces y escalables.
+                Con un enfoque integral, abarcamos desde la fase de planificación y diseño hasta la implementación,
+                pruebas y mantenimiento continuo. ¡Confía en nosotros para llevar tus ideas al siguiente nivel!
+            </p>
+        </div>
+    </section>
+    <section class="section5">
+        <h1>Sites powered by</h1>
+        <div class="brands">
+            <img class="img-fluid" src="{{ url_for('index_bp.static', filename='img/HTML.png') }}" width="110px"
+                height="130" />
+            <img class="img-fluid" src="{{ url_for('index_bp.static', filename='img/CSS.png') }}" width="110px"
+                height="150" />
+            <img class="img-fluid" src="{{ url_for('index_bp.static', filename='img/JS.png') }}" width="120px"
+                height="150" />
+            <img class="img-fluid" src="{{ url_for('index_bp.static', filename='img/Phyton.png') }}" width="120px"
+                height="150" />
+            <img class="img-fluid" src="{{ url_for('index_bp.static', filename='img/MySQL.png') }}" width="100px"
+                height="130" />
+            <img class="img-fluid" src="{{ url_for('index_bp.static', filename='img/bootstrap.png') }}" width="110px"
+                height="130" />
+            <img class="img-fluid" src="" />
+            <img src="" />
+        </div>
+    </section>
+    <section class="section6">
+        <div>
+            <h1>¿Quieres cotizar?</h1>
+        </div>
+        <div>
+            <form class="form1 mb-3">
+                <input id="name" class="form-control form-control" type="text" placeholder="Nombre"
+                    aria-label=".form-control example">
+                <input id="last_name" class="form-control form-control" type="text" placeholder="Apellido"
+                    aria-label=".form-control example">
+                <input id="email" type="email" class="form-control" placeholder="Email">
+                <input id="phone" type="number" class="form-control" placeholder="Teléfono">
+                <input id="product_cotización" class="form-control form-control" type="text" name="product_cotización"
+                    placeholder="Producto que deseas cotizar" />
+                <textarea class="form-control"
+                    placeholder="Escribe una pequeña descripción de tu cotización"></textarea>
+                <button class="botonazo btn btn-success btn-lg" type="submit">Enviar cotización</button>
+            </form>
+        </div>
+    </section>
+    <footer>
+        <div class="icons">
+            <img id="html"
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAcFJREFUSEu11T+oT2EYwPHPLYUwyCIki0GRjKRkEJIuMYgsFDKIlAzyJxnUFQburTtYlEEU+TORQWajvyXCYjAoinCeen86vZ3znt8P92znff58n+d9/rxDJvgbmmD/ugCTsQXrsBQL8Atv8BT3cRPf2wItAdbjcnJaSvQV9uFBk1Ib4GQV6YkBru8njuBcbtMEOIXjAzivqx7ExfpBDtiI2wXnn3AYj/A26Y2ks/iNTFbhcc9HHTAdLzG7BfADi/E8k9cBIQr5kl7h64Ao1Ggh+mvYXpOvwQqsxfLMbhNuxVkdcAcbCoBjOJPkW3G9oDuOPTngPeYUjA7hQpJHMc8XdGNGluWAr5jynwCfq26amQO+YFoG+NiRVag/xOrMLnzNyAEvsDBT/IC5HTPxDvMynWdYlAOuVm26Y8AMYld9awjgSjUnu3LANkQrtn2DFLmxTSfhNea3EPoF/LmePIP4jw167x8AscpX4knPR9Oyi2V1oAHSTwan80XZBIizsd4k1kBdgLNVwY/mgZUenJ1pWmclozZAbIC9uNt0tV1P5lTsxub0NF5KTvZjuNqaNxAt+VdPZsd89SfuyqA/LwWt33YeVhnsaaE0AAAAAElFTkSuQmCC" />
+            <img
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAZtJREFUSEvd1b1rFVEQBfBfNKAQsYqFoBiFIEIUESstlYAhYJQQIoJFLETsFUXxD9DGQrERCdjYWAiBFDYS0gQFxRSpEhIQBbESwS9I7sA+WNbdzb4Hr8nt9s6dc+6cO3O2R5dXT5fxbT2CPvzcRLbduI9RHMRfPMYd7MX57Hs9cPISbcciJvCphuQNzpTE17Afl/CyFc8TDGAF33AB8yUgJ/C+hvwd3uIFPhQr2Ikf6M0AnuEevuQAL2fJVRwh740k3XRZBbEXtz5VyJ7DayzgOB7VVPAcU/l4XqJdOIxZ9Hc4Hw9ws4pgH1bxPXXBng4JQp4nVQTbsIwDHYJH2hEsVRHE/sWsxVoP3Q5XdOChYkKZVcQc3MXRdtBxHU+bEIxgpk3wGLLBNM1/mhDEmejjKw1J/uF01sb/pVS5aTz4EG6nR5usIQq/uZoaI/q/dJURhOGdxC2cqwH/hZjsV3WV5gnO4mFKOFYwwbL8GMZraWpD+9pVrCCseDwZ1RiGsSPJ9Btf8RnhpHHjj5sBt+Jb74/WtPLG57ou0QbqWz0ZBzSqswAAAABJRU5ErkJggg==" />
+            <img
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAjNJREFUSEvF1UnITWEYB/DfhyLCRlamQiEJkSQskFJfMmS2sTEsFBmKLJTIELKyYCF9hoxRSuykJJIyJpKyYUVW5vfRe+t0Oqd7U7fvrds95x2e///5/5/nPR3aPDraHF+3AYzEVszEeGqJ/MEz3MNxvCkrUpXBBpxAL3zAA7yqkXIyJmIofmATThX3lgGm5IAvsAhvW/QosryBYZiKJ41zZYCrWIAxeN9C8LVJvr34krJdh0cpo+tYUgcQQYN9gBRHD8zDOPzCS9zNc7ezlMMzwCCMqAP4ii5sLEQPfS9iegk0jD2ddP+EwTiDUGA++tUB/MYR7Mgbgvn9zGgb7qBnZn4oV80sRDXFCCJL855/E2UPYuMB7MoHluVD8X+plMHy5NWFZOjCbHAsn0/yxXwQqwUIZjvzejxvR398KwGE1p9TOe9LvuzJayHvqiLxqgyiYbbkAwezXANT44U/xdEA2J96YHdeOIs1zQCO5S6OM1Ful7OuV0oAwTQYFyWK9xXNPChm0DA5SjCkCpOjw+emSjmM15hdMjkA+9R5EDoHi/UFtkOymTMqynQlPhbmo0znICStNDkuq/hVNVow60wV9h23cLPAvBHvMQYkkqPrAIL94lSaY1u8KopJTUj311OcSyRX1wFMSiyDRWwMg9+VZKl7jeDXEF5NyzEqJYrJxnUdBj/MksT8TzxPjdgbo7LZMd8XcQvH+macLLKo+6L9zwfnaNX13m2fzBalb76t7Rn8BcJ+cxlsKeBhAAAAAElFTkSuQmCC" />
+            <img
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAASxJREFUSEvl1TsvBFEYh/HfCp2Igso3oNXoKFQKIa6hk/AtJD6GS4m4h0InLo1G7xPoRKUl7Elem81erZndxlQzOe88z5z/Oe+cgjZfhTbzdVxwh/GMs7rHxA+jcgZfGeFV3EaC66ie+oO0xK0nOMBqgA+x3KKkqWAX6wHdw1regnfsowsr6M1b8IrngA5jsLgzHuJ5CP3YxgdGMFfxAU0jOsZSvHSERUo9M4MnvJRBN4vjW2XPTQUnAU3vJNlCxFVvG3fjDX0hySTowRVGQ5waK12PGMtDkLr0NkA72Ij7S0znIUhrcBGgWlGmoaYRncb0U3GCzCPl/IlZnIfgLMbK6/6JoFGjDURzpShq1f0qohb/DFXldRc5jwPnBpM/yo4fmVmjqZ9V7uQAfgNR+VIZag7oTQAAAABJRU5ErkJggg==" />
+            <img
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAUlJREFUSEvd1T8ohWEUx/GPJIPBZJBSMmCwW2xGpbBSNmVSBhbJRCmTsilWfxaZbBYzA5OQMpgMBsmfe/S8um73ute93eWe5an3vM/5nt/vvM/zNqlzNNW5vsYCjGEN/TXadoUFnESdfIse0FVj8Wz7DXoLAZ8pO4DrKkGhPhT81M5XkAFeMI3Df0LGsYu2coCs7gYW8V4G1JxmF77nx3fzxRTMYButOMMEnkpAOnCAYbxiFjvlFAR0EMfoxiNC/nkBZCjZ2Il7jOaauURmdUkFmap27GMEb5jHVoLMYRMtOMVkLv+cchUDMgtXsJw276V1Kq2RW83rOh7/C5C5EipCTaiKiG6j6+i+MKoCRJEeHOXUfKSZ3JYYfNWASo9FAwPu0ndfqRV/vRfziZn9OslxXa+jr0bCRe5ULxW7rmusW3x7Y/0y62LRF2qEQhkl8rgIAAAAAElFTkSuQmCC" />
+        </div>
+        <div>
+            <p>Site powered by Lester's Company</p>
+            <div class="correo_contacto">
+                <a href="mailto:lestercardona8@gmail.com">lestercardona8@gmail.com</a>
+            </div>
+        </div>
+    </footer>
+    <style>
+        /* INDEX !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+        body {
+            width: 100%;
+            font-family: "Noto Sans", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: none;
+            font-style: normal;
+            font-variation-settings: "wdth" 100;
+            margin: 0 0;
+        }
+
+        /*Header !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+
+        header {
+            display: flex;
+            width: 100%;
+            height: 100px;
+            justify-content: space-between;
+            background-color: black;
+            padding: 10px 0;
+            position: fixed;
+            z-index: 1000;
+            top: 0;
+
+        }
+
+        header .logo {
+            margin: 5px 20px;
+        }
+
+        .logo img {
+            box-shadow: 0 0 10px white;
+            border-radius: 100px;
+            transition: opacity 0.3s ease;
+        }
+
+        .logo img:hover {
+            opacity: 0.5;
+        }
+
+        header .nav {
+            display: flex;
+            margin-right: 15px;
+        }
+
+        .nav .nav1,
+        .nav .nav2 {
+            justify-content: center;
+            margin: 7% 10px;
+            text-decoration: none;
+            color: white;
+            ;
+            font-weight: bold;
+            font-size: 16px;
+            transition: opacity 0.3s ease;
+
+        }
+
+        .nav1:hover {
+            cursor: pointer;
+            opacity: 0.5;
+        }
+
+        .nav .nav2 {
+            text-align: center;
+            width: 80px;
+            height: 28px;
+            border: 1px solid black;
+            border-radius: 5px;
+            background-color: white;
+            color: black;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .nav2:hover {
+            cursor: pointer;
+            box-shadow: 0 0 5px white;
+            text-decoration: wavy;
+            background-color: black;
+            color: white;
+        }
+
+        /* SECTION 1 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+
+        .section1 {
+            display: flex;
+            width: 100%;
+            height: 600px;
+            justify-content: center;
+            align-items: center;
+            margin: 100px 0;
+            background-image: url("{{ url_for('index_bp.static', filename='img/blockchain-g.gif') }}");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            flex-wrap: wrap;
+        }
+
+        .sec1 h1 {
+            width: 100%;
+            height: 200px;
+            border-radius: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            color: white;
+            margin: 10% auto;
+            margin-top: 330px;
+            text-align: center;
+            font-size: 55px;
+            text-shadow: 0 0 2px hsl(0, 0%, 100%);
+            padding: 10px 10px;
+        }
+
+        @media (max-width: 1140px) {
+            .sec1 h1 {
+                width: 90%;
+                height: 200px;
+                margin: 150px 5%;
+                font-size: 45px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .sec1 h1 {
+                width: 90%;
+                height: 120px;
+                margin: 100px 5%;
+                font-size: 35px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .sec1 h1 {
+                width: 90%;
+                height: 100px;
+                margin: 50px 5%;
+                font-size: 25px;
+            }
+        }
+
+
+
+        /* SECTION 2 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+
+        .section2 {
+            display: flex;
+            width: 100%;
+            height: auto;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 100px;
+        }
+
+        .sec2,
+        .sec2 p {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            width: 90%;
+            height: auto;
+            margin: 0 auto;
+            font-size: 18px;
+        }
+
+        @media (max-width: 1500px) {
+            .sec2 {
+                width: 90%;
+                height: auto;
+            }
+        }
+
+        .sec2 p {
+            color: black;
+
+        }
+
+        /* SECTION 3 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+
+        .section3 {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            height: auto;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            background-color: black;
+            /*margin-bottom: 500px;  !!!!!!!!!!!!!!!!*/
+        }
+
+        .Services {
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            display: flex;
+            margin: auto 0;
+        }
+
+        .sec3 h1 {
+            font-size: 35px;
+            color: white;
+            margin-top: 30px;
+        }
+
+        .elementService {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            margin: 50px 10px;
+        }
+
+        /*Elementos*/
+
+        .elementService .Element1,
+        .elementService .Element2,
+        .elementService .Element3,
+        .elementService .Element4 {
+            justify-content: center;
+            text-align: center;
+            border: solid transparent 1px;
+            border-radius: 20px;
+
+        }
+
+        .elementService .Element1 a,
+        .elementService .Element2 a,
+        .elementService .Element3 a,
+        .elementService .Element4 a {
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            font-size: 25px;
+            font-weight: bold;
+            border-radius: 5px;
+            color: white;
+            text-decoration: none;
+            transition: box-shadow 0.3s ease;
+
+            /*transition:opacity 0.3s ease;*/
+        }
+
+        .elementService .Element1 p,
+        .elementService .Element2 p,
+        .elementService .Element3 p,
+        .elementService .Element4 p {
+            width: auto;
+            height: 80px;
+            text-align: center;
+            color: white;
+            transform: translateY(325%);
+        }
+
+
+
+        .elementService .Element1 a:hover,
+        .elementService .Element2 a:hover,
+        .elementService .Element3 a:hover,
+        .elementService .Element4 a:hover {
+            cursor: pointer;
+            box-shadow: 0 2px 15px darkgray;
+            border-radius: 20%;
+            transition: border-radius 0.8s ease;
+
+            /*opacity: 0.5;*/
+        }
+
+        .elementService .Element1 a {
+            width: 400px;
+            height: 350px;
+            background-image: url("{{ url_for('index_bp.static', filename='img/360_F_335348056_yY8QyHP966KePjyutnns1Puwt2bnngZc.jpg') }}");
+            background-size: cover;
+        }
+
+        .elementService .Element2 a {
+            width: 400px;
+            height: 350px;
+            background-image: url("{{ url_for('index_bp.static', filename='img/computer_engineer_skills.jpg') }}");
+            background-size: cover;
+        }
+
+        .elementService .Element3 a {
+            width: 400px;
+            height: 350px;
+            background-image: url("{{ url_for('index_bp.static', filename='img/1709543574920.jpeg') }}");
+            background-size: cover;
+        }
+
+        .elementService .Element4 a {
+            width: 400px;
+            height: 350px;
+            background-image: url("{{ url_for('index_bp.static', filename='img/1466396452.jpg') }}");
+            background-size: cover;
+        }
+
+
+        @media (max-width: 1665px) {
+
+            .elementService .Element1 a,
+            .elementService .Element2 a,
+            .elementService .Element3 a,
+            .elementService .Element4 a {
+                width: 350px;
+                height: 300px;
+                display: flex;
+                justify-content: center;
+                text-align: center;
+                border: solid transparent 1px;
+                border-radius: 20px;
+                color: white;
+                transition: box-shadow 0.3s ease;
+                margin: 0;
+            }
+
+            .elementService .Element1 p {
+                transform: translateY(250%);
+            }
+
+            .elementService .Element2 p,
+            .elementService .Element3 p,
+            .elementService .Element4 p {
+                width: auto;
+                height: 30px;
+                transform: translateY(680%);
+            }
+
+        }
+
+        @media (max-width: 1490px) {
+
+            .elementService .Element1 a,
+            .elementService .Element2 a,
+            .elementService .Element3 a,
+            .elementService .Element4 a {
+                width: 300px;
+                height: 250px;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                text-align: center;
+                border: solid transparent 1px;
+                border-radius: 20px;
+                color: white;
+                transition: box-shadow 0.3s ease;
+            }
+
+            .elementService .Element1 p {
+                transform: translateY(200%);
+            }
+
+            .elementService .Element2 p,
+            .elementService .Element3 p,
+            .elementService .Element4 p {
+                width: auto;
+                height: 30px;
+                transform: translateY(600%);
+            }
+
+
+
+        }
+
+        @media (max-width: 1300px) {
+
+            .elementService .Element1 a,
+            .elementService .Element2 a,
+            .elementService .Element3 a,
+            .elementService .Element4 a {
+                width: 100vh;
+                height: 350px;
+                display: flex;
+                justify-content: center;
+                text-align: center;
+                border: solid transparent 1px;
+                border-radius: 20px;
+                color: white;
+                transition: box-shadow 0.3s ease;
+                background-size: cover;
+
+            }
+
+            .Services {
+                display: flex;
+                flex-wrap: wrap;
+
+
+            }
+
+
+            .elementService .Element1 p {
+                transform: translateY(350%);
+            }
+
+
+            .elementService .Element2 p,
+            .elementService .Element3 p,
+            .elementService .Element4 p {
+                width: auto;
+                height: 30px;
+                transform: translateY(900%);
+            }
+
+            .elementService .Element2 p {
+                color: black;
+            }
+        }
+
+        @media (max-width: 980px) {
+
+            .elementService .Element1,
+            .elementService .Element2,
+            .elementService .Element3,
+            .elementService .Element4 {
+                width: 100%;
+                height: 350px;
+                display: flex;
+                justify-content: center;
+                text-align: center;
+                border: solid transparent 1px;
+                border-radius: 20px;
+                color: white;
+                transition: box-shadow 0.3s ease;
+                background-size: cover;
+            }
+
+            .Services .elementService {
+                display: flex;
+                flex-wrap: wrap;
+                margin-left: 25%;
+                margin-right: 25%
+            }
+
+            .elementService .Element2 p {
+                color: white;
+            }
+        }
+
+        /* SECTION 4 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+
+        .section4 {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 150px 180px;
+
+        }
+
+        .section4 p {
+            width: 90%;
+            height: auto;
+            color: black;
+        }
+
+        @media (max-width:1550px) {
+            .section4 {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin: 150px 80px;
+
+            }
+
+            .section4 p {
+                width: 100%;
+                height: auto;
+                color: black;
+            }
+        }
+
+        @media (max-width:1050px) {
+            .section4 {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin: 90px auto;
+                flex-wrap: wrap;
+            }
+
+            .section4 .S4 {
+                width: 100%;
+                height: auto;
+                color: black;
+                margin: 20px auto;
+            }
+
+            .section4 .S4 p {
+                width: 90%;
+                height: auto;
+                color: black;
+                margin: 20px auto;
+                text-align: center;
+            }
+
+            .section4 .S4 img {
+                align-items: center;
+                text-align: center;
+                width: 80%;
+                height: 10%;
+                color: black;
+                margin-left: 50px;
+            }
+        }
+
+
+        /* SECTION 5 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+
+        .section5 {
+            width: 100%;
+            height: 500px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            align-items: center;
+            font-size: 26px;
+            margin-bottom: 100px;
+            background-color: black;
+            color: white;
+        }
+
+        .section5 .brands {
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            align-items: center;
+            width: 95%;
+            height: auto;
+            margin: 40px 10%;
+            flex-wrap: wrap;
+
+        }
+
+        .section5 .brands img {
+            margin: auto 30px;
+        }
+
+        /* SECTION 6 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+
+        .section6 {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            align-items: center;
+        }
+
+        .section6 .form1 {
+            width: 100%;
+            height: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            align-items: center;
+            margin: 50px auto;
+        }
+
+        .section6 .form1 input,
+        textarea {
+            width: 400px;
+            height: auto;
+            margin: 10px auto;
+        }
+
+        .section6 .form1 .botonazo {
+            margin: 20px auto;
+        }
+
+        /*FOOTER !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+
+        footer {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            width: 100%;
+            height: 150px;
+            background-color: rgb(0, 0, 0);
+            align-items: flex-end;
+        }
+
+        footer .icons,
+        p {
+            margin: 10px 50px;
+            color: gray;
+
+        }
+
+        footer img {
+            box-shadow: 0 0 1px white;
+            background-color: gray;
+        }
+
+        .correo_contacto a,
+        p {
+            display: flex;
+            justify-content: end;
+            text-align: right;
+            margin-right: 50px;
+        }
+    </style>
+</body>
+
+</html>

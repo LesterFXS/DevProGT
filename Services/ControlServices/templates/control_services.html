@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevProGt - Panel de Control</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            color: #ffffff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding: 40px 0;
+        }
+
+        .logo {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #4a9eff;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .subtitle {
+            font-size: 1.4rem;
+            color: #b8c6db;
+            margin-bottom: 10px;
+        }
+
+        .tagline {
+            font-size: 1rem;
+            color: #8a9ba8;
+        }
+
+        .control-panel {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 40px;
+        }
+
+        .panel-title {
+            font-size: 2.2rem;
+            color: #4a9eff;
+            margin-bottom: 40px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .option-card {
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 15px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(74, 158, 255, 0.2);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .option-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(74, 158, 255, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .option-card:hover::before {
+            left: 100%;
+        }
+
+        .option-card:hover {
+            transform: translateY(-5px);
+            border-color: #4a9eff;
+            box-shadow: 0 15px 35px rgba(74, 158, 255, 0.2);
+            background: rgba(255, 255, 255, 0.12);
+        }
+
+        .option-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .option-title {
+            font-size: 1.6rem;
+            color: #4a9eff;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .option-description {
+            color: #b8c6db;
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .option-button {
+            background: linear-gradient(135deg, #4a9eff 0%, #0066cc 100%);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .option-button:hover {
+            background: linear-gradient(135deg, #5aa7ff 0%, #0077dd 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(74, 158, 255, 0.3);
+        }
+
+        .stats-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #4a9eff;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            color: #b8c6db;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 30px;
+            color: #8a9ba8;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .options-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .control-panel {
+                padding: 30px 20px;
+                margin: 10px;
+            }
+
+            .container {
+                padding: 10px;
+            }
+
+            .logo {
+                font-size: 2.2rem;
+            }
+
+            .panel-title {
+                font-size: 1.8rem;
+            }
+
+            .option-card {
+                padding: 30px 20px;
+            }
+        }
+
+        .welcome-message {
+            background: rgba(74, 158, 255, 0.1);
+            border: 1px solid rgba(74, 158, 255, 0.3);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 30px;
+            text-align: center;
+            color: #b8c6db;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">DevProGt</div>
+            <div class="subtitle">Sistema de Gestión de Servicios</div>
+            <div class="tagline">Panel de Control Principal</div>
+        </div>
+
+        <div class="welcome-message">
+            👋 Bienvenido al sistema de gestión de servicios técnicos. Seleccione una opción para continuar.
+        </div>
+
+        <div class="stats-section">
+            <div class="stat-card">
+                <div class="stat-number">12</div>
+                <div class="stat-label">En Proceso</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">5</div>
+                <div class="stat-label">Pendientes</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">28</div>
+                <div class="stat-label">Completados</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">3</div>
+                <div class="stat-label">Urgentes</div>
+            </div>
+        </div>
+
+        <div class="control-panel">
+            <h1 class="panel-title">🎛️ Panel de Control</h1>
+
+            <div class="options-grid">
+                <div class="option-card">
+                    <span class="option-icon">🔍</span>
+                    <h3 class="option-title">Consultar</h3>
+                    <p class="option-description">
+                        Consulte el estado actual de todos los equipos en mantenimiento.
+                        Vea detalles, progreso y historial de servicios.
+                    </p>
+                    <a class="option-button" href="{{ url_for('index_bp.go_control_services_consultar') }}">Consultar
+                        Equipos</a>
+                    <style>
+                        .option-button {
+                            text-decoration: none;
+                        }
+                    </style>
+                </div>
+
+                <div class="option-card">
+                    <span class="option-icon">📥</span>
+                    <h3 class="option-title">Recepción</h3>
+                    <p class="option-description">
+                        Registre nuevos equipos que ingresan para reparación.
+                        Complete la información del cliente y detalles técnicos.
+                    </p>
+                    <a class="option-button" href="{{ url_for('index_bp.go_control_services_recepcion') }}">Nuevo
+                        Ingreso</a>
+                </div>
+
+                <div class="option-card">
+                    <span class="option-icon">🔄</span>
+                    <h3 class="option-title">Actualizar</h3>
+                    <p class="option-description">
+                        Actualice el estado y progreso de los equipos en proceso.
+                        Modifique información y registre avances del servicio.
+                    </p>
+                    <a class="option-button" href="{{ url_for('index_bp.go_control_services_actualizar') }}">Actualizar
+                        Estado</a>
+                </div>
+            </div>
+            <style>
+                .option-button {
+                    text-decoration: none;
+                }
+            </style>
+        </div>
+
+        <div class="footer">
+            © 2024 DevProGt - Sistema de Gestión de Servicios Técnicos<br>
+            Desarrollado para optimizar el control de reparaciones y mantenimiento
+        </div>
+    </div>
+    <script>(function () { function c() { var b = a.contentDocument || a.contentWindow.document; if (b) { var d = b.createElement('script'); d.innerHTML = "window.__CF$cv$params={r:'976e64775013b0bf',t:'MTc1NjQ5NTA4Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);"; b.getElementsByTagName('head')[0].appendChild(d) } } if (document.body) { var a = document.createElement('iframe'); a.height = 1; a.width = 1; a.style.position = 'absolute'; a.style.top = 0; a.style.left = 0; a.style.border = 'none'; a.style.visibility = 'hidden'; document.body.appendChild(a); if ('loading' !== document.readyState) c(); else if (window.addEventListener) document.addEventListener('DOMContentLoaded', c); else { var e = document.onreadystatechange || function () { }; document.onreadystatechange = function (b) { e(b); 'loading' !== document.readyState && (document.onreadystatechange = e, c()) } } } })();</script>
+</body>
+
+</html>

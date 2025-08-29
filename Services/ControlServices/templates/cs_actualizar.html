@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevProGt - Actualizar Estado</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            color: #ffffff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px 0;
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #4a9eff;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #b8c6db;
+            margin-bottom: 5px;
+        }
+
+        .back-button {
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(74, 158, 255, 0.3);
+            color: #4a9eff;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            background: rgba(74, 158, 255, 0.2);
+            transform: translateX(-3px);
+        }
+
+        .main-container {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .page-title {
+            font-size: 2rem;
+            color: #4a9eff;
+            margin-bottom: 30px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .search-section {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .search-title {
+            font-size: 1.3rem;
+            color: #4a9eff;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .search-grid {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 20px;
+            align-items: end;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #e1e8ed;
+            font-size: 0.95rem;
+        }
+
+        input,
+        select,
+        textarea {
+            padding: 12px 16px;
+            border: 2px solid rgba(74, 158, 255, 0.3);
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.08);
+            color: #ffffff;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #4a9eff;
+            background: rgba(255, 255, 255, 0.12);
+            box-shadow: 0 0 20px rgba(74, 158, 255, 0.2);
+        }
+
+        input::placeholder,
+        textarea::placeholder {
+            color: #a0a8b0;
+        }
+
+        select option {
+            background: #1a1a2e;
+            color: #ffffff;
+        }
+
+        .search-button {
+            background: linear-gradient(135deg, #4a9eff 0%, #0066cc 100%);
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            height: fit-content;
+        }
+
+        .search-button:hover {
+            background: linear-gradient(135deg, #5aa7ff 0%, #0077dd 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(74, 158, 255, 0.3);
+        }
+
+        .equipment-info {
+            background: rgba(74, 158, 255, 0.1);
+            border: 1px solid rgba(74, 158, 255, 0.3);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 30px;
+            display: none;
+        }
+
+        .equipment-info.show {
+            display: block;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .info-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .info-label {
+            font-size: 0.85rem;
+            color: #b8c6db;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        .info-value {
+            font-size: 1.1rem;
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        .status-badge {
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-align: center;
+            text-transform: uppercase;
+            display: inline-block;
+        }
+
+        .status-recibido {
+            background: rgba(255, 193, 7, 0.2);
+            color: #ffc107;
+            border: 1px solid rgba(255, 193, 7, 0.3);
+        }
+
+        .status-diagnostico {
+            background: rgba(0, 123, 255, 0.2);
+            color: #007bff;
+            border: 1px solid rgba(0, 123, 255, 0.3);
+        }
+
+        .status-reparacion {
+            background: rgba(255, 87, 34, 0.2);
+            color: #ff5722;
+            border: 1px solid rgba(255, 87, 34, 0.3);
+        }
+
+        .status-pruebas {
+            background: rgba(156, 39, 176, 0.2);
+            color: #9c27b0;
+            border: 1px solid rgba(156, 39, 176, 0.3);
+        }
+
+        .status-listo {
+            background: rgba(76, 175, 80, 0.2);
+            color: #4caf50;
+            border: 1px solid rgba(76, 175, 80, 0.3);
+        }
+
+        .update-form {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: none;
+        }
+
+        .update-form.show {
+            display: block;
+        }
+
+        .form-title {
+            font-size: 1.5rem;
+            color: #4a9eff;
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-bottom: 25px;
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .progress-section {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+
+        .progress-title {
+            font-size: 1.1rem;
+            color: #4a9eff;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .progress-bar {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            height: 20px;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+
+        .progress-fill {
+            background: linear-gradient(135deg, #4a9eff 0%, #0066cc 100%);
+            height: 100%;
+            width: 65%;
+            transition: width 0.3s ease;
+        }
+
+        .progress-text {
+            text-align: center;
+            color: #b8c6db;
+            font-size: 0.9rem;
+        }
+
+        .history-section {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+
+        .history-title {
+            font-size: 1.1rem;
+            color: #4a9eff;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .history-item {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-left: 4px solid #4a9eff;
+        }
+
+        .history-date {
+            font-size: 0.8rem;
+            color: #8a9ba8;
+            margin-bottom: 5px;
+        }
+
+        .history-text {
+            color: #e1e8ed;
+            line-height: 1.4;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .update-button {
+            background: linear-gradient(135deg, #4a9eff 0%, #0066cc 100%);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .update-button:hover {
+            background: linear-gradient(135deg, #5aa7ff 0%, #0077dd 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(74, 158, 255, 0.3);
+        }
+
+        .cancel-button {
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            padding: 15px 30px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cancel-button:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            color: #8a9ba8;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .search-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .main-container {
+                padding: 25px;
+                margin: 10px;
+            }
+
+            .container {
+                padding: 10px;
+            }
+
+            .back-button {
+                position: relative;
+                top: auto;
+                left: auto;
+                margin-bottom: 20px;
+                display: inline-block;
+            }
+
+            .button-group {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        .required {
+            color: #ff6b6b;
+        }
+
+        .success-message {
+            background: rgba(76, 175, 80, 0.2);
+            border: 1px solid rgba(76, 175, 80, 0.3);
+            color: #4caf50;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+            display: none;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <a href="control.html" class="back-button">← Volver al Panel</a>
+
+        <div class="header">
+            <div class="logo">DevProGt</div>
+            <div class="subtitle">Actualización de Estado de Equipos</div>
+        </div>
+
+        <div class="main-container">
+            <h1 class="page-title">🔄 Actualizar Estado del Equipo</h1>
+
+            <div class="success-message" id="successMessage">
+                ✅ Estado del equipo actualizado correctamente
+            </div>
+
+            <div class="search-section">
+                <h3 class="search-title">🔍 Buscar Equipo</h3>
+                <div class="search-grid">
+                    <div class="form-group">
+                        <label for="searchOrder">Número de Orden o Cliente</label>
+                        <input type="text" id="searchOrder" placeholder="Ej: ORD-001 o nombre del cliente">
+                    </div>
+                    <button class="search-button" onclick="searchEquipment()">Buscar</button>
+                </div>
+            </div>
+
+            <div class="equipment-info" id="equipmentInfo">
+                <h3 class="search-title">📋 Información del Equipo</h3>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <div class="info-label">Orden #</div>
+                        <div class="info-value">ORD-001</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Cliente</div>
+                        <div class="info-value">María González</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Equipo</div>
+                        <div class="info-value">Laptop HP Pavilion 15</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Falla Reportada</div>
+                        <div class="info-value">No enciende</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Estado Actual</div>
+                        <div class="info-value"><span class="status-badge status-diagnostico">Diagnóstico</span></div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Fecha Ingreso</div>
+                        <div class="info-value">15/01/2024</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="update-form" id="updateForm">
+                <h3 class="form-title">✏️ Actualizar Información</h3>
+
+                <div class="progress-section">
+                    <div class="progress-title">Progreso del Servicio</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+                    <div class="progress-text">65% Completado</div>
+                </div>
+
+                <form>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="newStatus">Nuevo Estado <span class="required">*</span></label>
+                            <select id="newStatus" name="newStatus" required>
+                                <option value="">Seleccione el nuevo estado</option>
+                                <option value="recibido">Recibido</option>
+                                <option value="diagnostico" selected>En Diagnóstico</option>
+                                <option value="reparacion">En Reparación</option>
+                                <option value="pruebas">En Pruebas</option>
+                                <option value="listo">Listo para Entrega</option>
+                                <option value="entregado">Entregado</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="priority">Prioridad</label>
+                            <select id="priority" name="priority">
+                                <option value="normal">Normal</option>
+                                <option value="urgente" selected>Urgente</option>
+                                <option value="critico">Crítico</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="technician">Técnico Asignado</label>
+                            <select id="technician" name="technician">
+                                <option value="">Seleccionar técnico</option>
+                                <option value="juan">Juan Pérez</option>
+                                <option value="ana">Ana Rodríguez</option>
+                                <option value="carlos">Carlos Mendoza</option>
+                                <option value="lucia">Lucía Vargas</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="estimatedDate">Fecha Estimada de Entrega</label>
+                            <input type="date" id="estimatedDate" name="estimatedDate">
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label for="diagnosis">Diagnóstico/Observaciones <span class="required">*</span></label>
+                            <textarea id="diagnosis" name="diagnosis"
+                                placeholder="Describa el diagnóstico actual, trabajos realizados, piezas necesarias, etc."
+                                required>Se detectó problema en la fuente de alimentación. Requiere reemplazo de componentes internos.</textarea>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label for="workDone">Trabajo Realizado</label>
+                            <textarea id="workDone" name="workDone"
+                                placeholder="Detalle el trabajo realizado en esta actualización"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="partsUsed">Piezas Utilizadas</label>
+                            <input type="text" id="partsUsed" name="partsUsed" placeholder="Ej: Fuente de poder 65W">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="cost">Costo de Reparación</label>
+                            <input type="number" id="cost" name="cost" placeholder="0.00" step="0.01">
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label for="nextSteps">Próximos Pasos</label>
+                            <textarea id="nextSteps" name="nextSteps"
+                                placeholder="Indique qué se debe hacer a continuación"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="history-section">
+                        <div class="history-title">📝 Historial de Actualizaciones</div>
+                        <div class="history-item">
+                            <div class="history-date">17/01/2024 - 14:30 - Juan Pérez</div>
+                            <div class="history-text">Equipo recibido. Se inicia proceso de diagnóstico inicial.</div>
+                        </div>
+                        <div class="history-item">
+                            <div class="history-date">17/01/2024 - 16:45 - Juan Pérez</div>
+                            <div class="history-text">Diagnóstico completado. Problema identificado en fuente de
+                                alimentación.</div>
+                        </div>
+                        <div class="history-item">
+                            <div class="history-date">18/01/2024 - 09:15 - Ana Rodríguez</div>
+                            <div class="history-text">Solicitadas piezas de repuesto. Esperando llegada de componentes.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="button-group">
+                        <button type="submit" class="update-button" onclick="updateEquipment()">Actualizar
+                            Estado</button>
+                        <button type="button" class="cancel-button" onclick="cancelUpdate()">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="footer">
+            © 2024 DevProGt - Sistema de Gestión de Servicios Técnicos<br>
+            Mantenga actualizado el estado de todos los equipos
+        </div>
+    </div>
+
+    <script>
+        function searchEquipment() {
+            const searchValue = document.getElementById('searchOrder').value;
+            if (searchValue.trim()) {
+                document.getElementById('equipmentInfo').classList.add('show');
+                document.getElementById('updateForm').classList.add('show');
+            }
+        }
+
+        function updateEquipment() {
+            event.preventDefault();
+            document.getElementById('successMessage').classList.add('show');
+            setTimeout(() => {
+                document.getElementById('successMessage').classList.remove('show');
+            }, 3000);
+        }
+
+        function cancelUpdate() {
+            document.getElementById('equipmentInfo').classList.remove('show');
+            document.getElementById('updateForm').classList.remove('show');
+            document.getElementById('searchOrder').value = '';
+        }
+
+        // Simular búsqueda en tiempo real
+        document.getElementById('searchOrder').addEventListener('input', function () {
+            if (this.value.length > 2) {
+                // Aquí se podría implementar búsqueda en tiempo real
+            }
+        });
+    </script>
+    <script>(function () { function c() { var b = a.contentDocument || a.contentWindow.document; if (b) { var d = b.createElement('script'); d.innerHTML = "window.__CF$cv$params={r:'976e6f7ab629b0bf',t:'MTc1NjQ5NTUzOC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);"; b.getElementsByTagName('head')[0].appendChild(d) } } if (document.body) { var a = document.createElement('iframe'); a.height = 1; a.width = 1; a.style.position = 'absolute'; a.style.top = 0; a.style.left = 0; a.style.border = 'none'; a.style.visibility = 'hidden'; document.body.appendChild(a); if ('loading' !== document.readyState) c(); else if (window.addEventListener) document.addEventListener('DOMContentLoaded', c); else { var e = document.onreadystatechange || function () { }; document.onreadystatechange = function (b) { e(b); 'loading' !== document.readyState && (document.onreadystatechange = e, c()) } } } })();</script>
+</body>
+
+</html>
